@@ -1,4 +1,4 @@
-# CKEditor 4S ticky Toolbar
+# CKEditor 4 Sticky Toolbar
 
 This plugin for your CKEditor 4 makes the toolbar sticky inside of editor window while scrolling! Suitable for long articles and large editors. Multiple editors on one page support. For the best experience use this plugin with [AutoGrow](https://ckeditor.com/cke4/addon/autogrow).
 
