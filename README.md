@@ -1,0 +1,1 @@
+# CKEditor4-sticky-toolbar
