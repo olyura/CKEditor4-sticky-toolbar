@@ -14,9 +14,11 @@ CKEDITOR.plugins.add( 'sticky', {
     
     setToolbars();
 
-    window.addEventListener('scroll', function(){
-      setToolbars();
-    }, false);
+    ['scroll', 'click'].forEach(function(e) {
+      window.addEventListener(e, function(){
+        setToolbars();
+      }, false);
+    });
     
     editor.on('contentDom', function () {
       var editable = editor.editable();
