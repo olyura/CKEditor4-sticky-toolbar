@@ -11,9 +11,10 @@
 
 CKEDITOR.plugins.add( 'sticky', {
   init: function( editor ) {
+    var config = editor.config;
     
     setToolbars();
-
+    
     ['scroll', 'click'].forEach(function(e) {
       window.addEventListener(e, function(){
         setToolbars();
@@ -28,7 +29,7 @@ CKEDITOR.plugins.add( 'sticky', {
     });
     
     function setToolbars() {
-      document.querySelectorAll(".cke").forEach(function(editor) {            
+      document.querySelectorAll(".cke").forEach(function(editor) {
         let inner = editor.querySelector('.cke_inner'),
             content = editor.querySelector('.cke_contents'),
             toolbar = editor.querySelector('.cke_top'); 
@@ -70,15 +71,19 @@ CKEDITOR.plugins.add( 'sticky', {
         let contentHeight = content.offsetHeight;
         let editorBorderTopWidth = parseFloat(getComputedStyle(editor).borderTopWidth);
         
-        if((scrollTop > editorTop) && (scrollTop < (editorTop+contentHeight-toolbarHeight))) {
-          toolbar.style.top = (scrollTop-editorTop-editorBorderTopWidth) + "px";
-        }  else if (scrollTop >= (editorTop+contentHeight-toolbarHeight)) {
-          toolbar.style.top = (contentHeight-toolbarHeight-editorBorderTopWidth) + "px";
+        let stikyTop = config.stikyOffsetTop;
+        
+        if((scrollTop > editorTop - stikyTop) && (scrollTop < (editorTop+contentHeight-toolbarHeight) - stikyTop)) {          
+          toolbar.style.top = (scrollTop-editorTop-editorBorderTopWidth+stikyTop) + "px";      
+        } else if (scrollTop >= (editorTop+contentHeight-toolbarHeight)-stikyTop) {          
+          toolbar.style.top = (contentHeight-toolbarHeight-editorBorderTopWidth) + "px";          
         } else {
-          toolbar.style.top = "0";
+          toolbar.style.top =  "0px";
         }               
       });  
     }
       
   }
 });
+
+CKEDITOR.config.stikyOffsetTop = 0;
