@@ -10,7 +10,7 @@ This plugin for your CKEditor 4 makes the toolbar act sticky inside of editor wi
 ```sh
 config.extraPlugins = 'sticky';
 ```
-If you have any fixed or sticky header in your interface, to avoid layering you should use <strong>config.stikyOffsetTop</strong> in your <strong>config.js</strong>.
+Optional. If you have any fixed or sticky header in your interface, to avoid layering you should use <strong>config.stikyOffsetTop</strong> in your <strong>config.js</strong>.
 
 ```sh
 config.stikyOffsetTop = 60;
