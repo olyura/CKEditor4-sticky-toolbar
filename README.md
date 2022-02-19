@@ -15,4 +15,4 @@ If you have any fixed or sticky header in your interface, to avoid layering you 
 ```sh
 config.stikyOffsetTop = 60;
 ```
-Where 60 is your fixed header height in pixels. This configuration is '0' by default.
+Where 60 is your fixed header height in pixels. This creates an offset from the top of your screen for CKEditor's toolbar. This config is '0' by default.
